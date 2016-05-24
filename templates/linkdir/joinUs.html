@@ -1,0 +1,298 @@
+<style>
+
+    .zhiwei{
+        font-size: 24px ;
+        font-family: '微软雅黑 Bold', 微软雅黑 ;
+        color: #000000;
+        font-weight: 700;
+    }
+
+    .zizhiwei{
+        color:#000000;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: '微软雅黑 Regular', '微软雅黑';
+    }
+
+
+</style>
+
+
+<script>
+    function choosework(){
+        alert("aa");
+    }
+
+    function choosework(arg1,id){
+
+        var ids="#"+id;
+        //根据请求路径获取对应的返回
+        $.ajax({
+            type:"GET",
+            url:arg1,
+            isRefToken:false,
+            success: function(res) {
+                $("#workDetail").html(res);
+                $(".zizhiwei").css("color","black");
+
+
+                $(ids).css("color","blue");
+
+            }
+        });
+
+
+    }
+</script>
+
+
+
+
+
+
+<div class="container">
+    <div  style="margin-top: 70px;margin-bottom: 50px;">
+        <p style="text-align: left">
+            <span style="font-size: 36px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700">
+                加入我们
+            </span>
+            <span style="margin-left: 10px;font-size: 24px;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #999999;font-weight: 700">
+                JOIN US
+            </span>
+        </p>
+
+        <div style="margin-top: 40px;margin-bottom: 50px">
+            <p style="text-align: left">
+            <span style="color:#333333;font-size: 24px;font-weight: 400;font-family: '微软雅黑 Regular', '微软雅黑';line-height: 30px;">
+                招精英人才，做精品游戏。洪禹科技，期待您的加入。
+            </span>
+            </p>
+            <p style="text-align: left;margin-top: -10px" >
+            <span style="color:#333333;font-size: 24px;font-weight: 400;font-family: '微软雅黑 Regular', '微软雅黑';line-height: 60px;">
+                简历请发送到邮箱：<span style="color:#0099FF;">hr@honvue.com</span>
+            </span>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div style="width: 140%;border-bottom: 1px solid rgba(98, 89, 93, 0.51);margin-left: -20%; "></div>
+
+    <div class="container" style="margin-top: 60px">
+        <div>
+            <p style="text-align: left">
+            <span style="font-size: 36px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700">
+                职能分类
+            </span>
+            <span style="margin-left: 10px;font-size: 24px;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #999999;font-weight: 700">
+                POSITION TYPE
+            </span>
+            </p>
+        </div>
+
+
+        <div  class="container" style="margin-top: 40px">
+
+            <table style="width: 100%">
+                <tr style="width: 100%;" >
+                    <td style="border-right: 1px solid #000000;text-align: left; vertical-align: top;width: 40%">
+                        <!-- 分类 -->
+                        <div style="margin-top: 10px;">
+
+                            <div >
+                                <!-- 主分类 -->
+                                <div style="float: left;width: 100%">
+                                    <p>
+                                        <span class="zhiwei">策划类</span>
+                                    </p>
+                                </div>
+                                <!-- 小分类 -->
+                                <div style="float: left;width: 50%;margin-top: 10px;">
+                                    <p  >
+                                        <span class="zizhiwei">> </span>
+                                        <span class="zizhiwei"  id="aaaa" name="aaaa" onclick="choosework('http://localhost:63342/hyweb/html/zhiweimiaoshu.html?_ijt=dgj0vbe0rfbmkfl2ji99dpst62','aaaa')">系统策划</a></span>
+                                    </p>
+
+                                </div>
+
+                                <div style="float: left;width: 50%;margin-top: 10px;">
+                                    <p class="zizhiwei">
+                                        <span class="zizhiwei">> </span>
+                                        <span  class="zizhiwei"  id="bbbb" name="bbbb" onclick="choosework('http://localhost:63342/hyweb/html/zhiweimiaoshu.html?_ijt=dgj0vbe0rfbmkfl2ji99dpst62','bbbb')">数值策划</span>
+                                    </p>
+
+                                </div>
+
+
+
+
+
+                            </div>
+
+                            <div >
+                                <!-- 主分类 -->
+                                <div style="float: left;width: 100%;margin-top: 10px;">
+                                    <p>
+                                        <span  class="zizhiwei">></span>
+                                        <span class="zhiwei">美术类</span>
+                                    </p>
+                                </div>
+                                <!-- 小分类 -->
+                                <div style="float: left;width: 50%;margin-top: 10px;">
+                                    <p >
+                                        <span  class="zizhiwei">></span>
+                                        <span  class="zizhiwei" name="">场景原画师</span>
+                                    </p>
+
+                                </div>
+
+                                <div style="float: left;width: 50%;margin-top: 10px;">
+                                    <p>
+                                        <span  class="zizhiwei">></span>
+                                        <span  class="zizhiwei">特效师</span>
+                                    </p>
+
+                                </div>
+
+                                <div style="float: left;width: 50%;margin-top: 10px;">
+                                    <p>
+                                        <span  class="zizhiwei">></span>
+                                        <span  class="zizhiwei">UI</span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div style="margin-top: 10px;">
+                                <!-- 主分类 -->
+                                <div style="float: left;width: 100%;margin-top: 10px;">
+                                    <p>
+                                        <span  class="zhiwei">技术类</span>
+                                    </p>
+                                </div>
+                                <!-- 小分类 -->
+                                <div style="float: left;width: 50%;margin-top: 10px;">
+                                    <p>
+                                        <span  class="zizhiwei">></span>
+                                        <span  class="zizhiwei">系统策划</span>
+                                    </p>
+
+                                </div>
+
+                                <div style="float: left;width: 50%;margin-top: 10px;">
+                                    <p>
+                                        <span  class="zizhiwei">></span>
+                                        <span  class="zizhiwei">系统策划</span>
+                                    </p>
+
+                                </div>
+
+                                <div style="float: left;width: 50%;margin-top: 10px;">
+                                    <p>
+                                        <span  class="zizhiwei">></span>
+                                        <span  class="zizhiwei">系统策划</span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </td>
+
+                    <td style="border-left: 0px solid #000000;vertical-align: top;width: 60%">
+
+                        <!-- 职位描述 -->
+                        <div style="padding-left: 5%;text-align: left;">
+                            <p>
+                                <span style="font-size: 24px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700">职位描述</span>
+                            </p>
+                            <!-- 此处div用于显示职位描述内容，后期会替代 -->
+                            <div id="workDetail" style="text-align: left;padding-left: 3%;margin-top: 10px;">
+
+                                <span style="font-size: 18px;font-family:'微软雅黑 Bold', '微软雅黑';font-weight:700;color:#000000;">系统策划</span>
+
+                                <br>
+                                <br>
+                                <br>
+
+
+                                <span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#333333;font-size: 18px;line-height:40px;">
+                                     <p> 岗位职责：</p>
+
+
+                                     <p> 1、根据主策要求，完成策划相关设计工作；</p>
+
+                                    <p>  2、与程序美术协同工作，保证开发结果符合设计要求；</p>
+
+                                    <p>  3、熟悉Excel表格，完成Excel配置；</p>
+
+                                    <p>  4、利用CocoStudio编辑器完成界面设计；</p>
+
+                                    <p>  5、协助完成测试工作</p>
+                                </span>
+
+                                <br><br>
+                                <span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#333333;font-size: 18px;line-height: 150%;line-height:40px;">
+                                   <p> 任职要求：</p>
+                                   <p>  1、做事认真，责任心强；</p>
+
+                                    <p>2、热爱游戏制作，熟悉各类游戏，思维活跃，创意丰富；</p>
+
+                                   <p> 3、对游戏设计和剧情编写很有热情；</p>
+
+                                   <p> 4、具有一定的文学知识理论基础；</p>
+
+                                   <p> 5、能够熟练使用Axure、CocoStudio等工具；</p>
+
+                                   <p> 6、拥有手游成功上线项目者优先</p>
+                                </span>
+                                <br><br>
+
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+
+                    </td>
+                </tr>
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <!--
+    职能分类
+    -->
+
+
+</div>
+
+
+
+
+
+
+
+
