@@ -113,7 +113,7 @@
                                 </li>
                                 <!---->
                                 <li>
-                                    <a id="games" href="{% url 'games' %}">
+                                    <a id="games" href="{% url 'games' 1 %}">
                                         <div class="navtitle">
                                             游戏产品<br>
                                             <div> GAMES</div>
@@ -122,7 +122,7 @@
                                 </li>
                                 <!---->
                                 <li>
-                                    <a id="news" href="{% url 'news' %}">
+                                    <a id="news" href="{% url 'news' 1 %}">
                                         <div class="navtitle">
                                             公司动态<br>
                                             <div> NEWS</div>
@@ -168,7 +168,7 @@
         </div>
     </div>
 
-    <div id="main">
+    <div id="main" style="min-height:768px">
         {% block content %}
         {% endblock %} 
     </div>

@@ -5,7 +5,7 @@
     <div style="text-align: center;margin-top: 20px">
         <p>
             <span style="text-align: center ;font-size: 36px;font-family: '微软雅黑 Bold', 微软雅黑">
-                泰迪爱消除
+                {{ game.name }}
             </span>
         </p>
 
@@ -21,14 +21,13 @@
 
             <p>
                 <span style="white-space: normal;font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal;">
-                    简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。
+                    {{ game.main_desc|truncatechars:180 }}
                 </span>
             </p>
 
         </div>
         <!-- 游戏截图 -->
         <div style="margin-top: 50px;margin-bottom: 50px;">
-
             <p>
                 <span  style="text-align: center ;font-size: 24px;font-family: '微软雅黑 Regular', 微软雅黑">
                     游戏截图
@@ -36,27 +35,14 @@
             </p>
 
             <div class="row" style="width: 90%;text-align: center;margin-left: 5%" align="center">
+                {% for showpicture in game.showpictures|slice:":3" %}
                 <div class="col-sm-6 col-md-4" >
                     <div class="thumbnail">
-                        <img src="/static/images/d1.jpg" alt="">
-
+                        <img src="{{ showpicture }}" alt="">
                     </div>
                 </div>
-
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="/static/images/d2.jpg" alt="">
-
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="/static/images/d3.jpg" alt="">
-
-                    </div>
-                </div>
+                {% endfor %}
             </div>
-
         </div>
 
 
@@ -66,20 +52,13 @@
                     游戏特色
                 </span>
             </p>
-
             <p>
                 <span style="white-space: normal;font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal;">
-                    简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。简介描述，限一百字。
+                    {{ game.feature_desc|truncatechars:100 }}
                 </span>
             </p>
-
         </div>
-
-
     </div>
-
-
-
 
 </div>
 {% endblock %}

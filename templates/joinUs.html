@@ -22,30 +22,23 @@
 
 
 <script type="text/javascript">
-    function choosework(){
-        alert("aa");
-    }
-
-    function choosework(arg1,id){
-
-        var ids="#"+id;
+    function choosework(url, category_index, job_index){
+        var ids="#job"+category_index+"_"+job_index;
         //根据请求路径获取对应的返回
+        var job_name = $(ids).html();
+        $("#job_name").html(job_name);
         $.ajax({
             type:"GET",
-            url:arg1,
+            url:url,
             isRefToken:false,
             success: function(res) {
                 $("#workDetail").html(res);
                 $(".zizhiwei").css("color","black");
-
-
                 $(ids).css("color","blue");
-
             }
         });
-
-
     }
+    choosework('{% url 'jobDesc' 0 0 %}', 0, 0);
 </script>
 
 
@@ -101,111 +94,28 @@
                         <!-- 分类 -->
                         <div style="margin-top: 10px;">
 
+                            {% for categoryinfo in jobs %}
                             <div >
                                 <!-- 主分类 -->
                                 <div style="float: left;width: 100%">
                                     <p>
-                                        <span class="zhiwei">策划类</span>
+                                        <span class="zhiwei">{{ categoryinfo.category }}</span>
                                     </p>
                                 </div>
                                 <!-- 小分类 -->
+                                {% for job in categoryinfo.info %}
                                 <div style="float: left;width: 50%;margin-top: 10px;">
                                     <p  >
-                                        <span class="zizhiwei">> </span>
-                                        <span class="zizhiwei"  id="aaaa" name="aaaa" onclick="choosework('http://localhost:63342/hyweb/html/zhiweimiaoshu.html?_ijt=dgj0vbe0rfbmkfl2ji99dpst62','aaaa')">系统策划</a></span>
+                                        <span class="zizhiwei"></span>
+                                        <span class="zizhiwei" id="job{{forloop.parentloop.counter0}}_{{forloop.counter0}}" onclick="choosework('{% url 'jobDesc' forloop.parentloop.counter0 forloop.counter0 %}', '{{forloop.parentloop.counter0}}', '{{forloop.counter0}}')">{{job.name}}</a></span>
                                     </p>
 
                                 </div>
-
-                                <div style="float: left;width: 50%;margin-top: 10px;">
-                                    <p class="zizhiwei">
-                                        <span class="zizhiwei">> </span>
-                                        <span  class="zizhiwei"  id="bbbb" name="bbbb" onclick="choosework('http://localhost:63342/hyweb/html/zhiweimiaoshu.html?_ijt=dgj0vbe0rfbmkfl2ji99dpst62','bbbb')">数值策划</span>
-                                    </p>
-
-                                </div>
-
-
-
-
-
+                                {% endfor %}
                             </div>
-
-                            <div >
-                                <!-- 主分类 -->
-                                <div style="float: left;width: 100%;margin-top: 10px;">
-                                    <p>
-                                        <span  class="zizhiwei">></span>
-                                        <span class="zhiwei">美术类</span>
-                                    </p>
-                                </div>
-                                <!-- 小分类 -->
-                                <div style="float: left;width: 50%;margin-top: 10px;">
-                                    <p >
-                                        <span  class="zizhiwei">></span>
-                                        <span  class="zizhiwei" name="">场景原画师</span>
-                                    </p>
-
-                                </div>
-
-                                <div style="float: left;width: 50%;margin-top: 10px;">
-                                    <p>
-                                        <span  class="zizhiwei">></span>
-                                        <span  class="zizhiwei">特效师</span>
-                                    </p>
-
-                                </div>
-
-                                <div style="float: left;width: 50%;margin-top: 10px;">
-                                    <p>
-                                        <span  class="zizhiwei">></span>
-                                        <span  class="zizhiwei">UI</span>
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                            <div style="margin-top: 10px;">
-                                <!-- 主分类 -->
-                                <div style="float: left;width: 100%;margin-top: 10px;">
-                                    <p>
-                                        <span  class="zhiwei">技术类</span>
-                                    </p>
-                                </div>
-                                <!-- 小分类 -->
-                                <div style="float: left;width: 50%;margin-top: 10px;">
-                                    <p>
-                                        <span  class="zizhiwei">></span>
-                                        <span  class="zizhiwei">系统策划</span>
-                                    </p>
-
-                                </div>
-
-                                <div style="float: left;width: 50%;margin-top: 10px;">
-                                    <p>
-                                        <span  class="zizhiwei">></span>
-                                        <span  class="zizhiwei">系统策划</span>
-                                    </p>
-
-                                </div>
-
-                                <div style="float: left;width: 50%;margin-top: 10px;">
-                                    <p>
-                                        <span  class="zizhiwei">></span>
-                                        <span  class="zizhiwei">系统策划</span>
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-
-                        </div>
+                            {% endfor %}
 
                     </td>
-
                     <td style="border-left: 0px solid #000000;vertical-align: top;width: 60%">
 
                         <!-- 职位描述 -->
@@ -214,53 +124,14 @@
                                 <span style="font-size: 24px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700">职位描述</span>
                             </p>
                             <!-- 此处div用于显示职位描述内容，后期会替代 -->
-                            <div id="workDetail" style="text-align: left;padding-left: 3%;margin-top: 10px;">
-
-                                <span style="font-size: 18px;font-family:'微软雅黑 Bold', '微软雅黑';font-weight:700;color:#000000;">系统策划</span>
-
-                                <br>
-                                <br>
-                                <br>
-
-
-                                <span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#333333;font-size: 18px;line-height:40px;">
-                                     <p> 岗位职责：</p>
-
-
-                                     <p> 1、根据主策要求，完成策划相关设计工作；</p>
-
-                                    <p>  2、与程序美术协同工作，保证开发结果符合设计要求；</p>
-
-                                    <p>  3、熟悉Excel表格，完成Excel配置；</p>
-
-                                    <p>  4、利用CocoStudio编辑器完成界面设计；</p>
-
-                                    <p>  5、协助完成测试工作</p>
-                                </span>
-
+                            <div  style="text-align: left;padding-left: 3%;margin-top: 10px;">
+                                <span id="job_name" style="font-size: 18px;font-family:'微软雅黑 Bold', '微软雅黑';font-weight:700;color:#000000;">系统策划</span>
                                 <br><br>
-                                <span style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;color:#333333;font-size: 18px;line-height: 150%;line-height:40px;">
-                                   <p> 任职要求：</p>
-                                   <p>  1、做事认真，责任心强；</p>
-
-                                    <p>2、热爱游戏制作，熟悉各类游戏，思维活跃，创意丰富；</p>
-
-                                   <p> 3、对游戏设计和剧情编写很有热情；</p>
-
-                                   <p> 4、具有一定的文学知识理论基础；</p>
-
-                                   <p> 5、能够熟练使用Axure、CocoStudio等工具；</p>
-
-                                   <p> 6、拥有手游成功上线项目者优先</p>
-                                </span>
-                                <br><br>
-
-
-
-
-
-
-
+                                <div>
+                                    <pre id="workDetail" style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;font-size: 18px;line-height:40px;">
+                                       职能描述 
+                                    </pre>
+                                </div>
                             </div>
 
                         </div>
@@ -271,20 +142,9 @@
             </table>
 
 
-
-
-
-
-
         </div>
 
     </div>
-
-
-    <!--
-    职能分类
-    -->
-
 
 </div>
 
