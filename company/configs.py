@@ -62,6 +62,18 @@ GAMES = [
         'download_tags': [],
         'type_tags': [u'二次元'],
     },
+    {
+        'index': 3,
+        'bigpicture': "/static/images/bannerHSSJ.png",
+        'smpicture': "/static/images/smallHSSJ.png",
+        'name': u'幻世神姬',
+        'showpictures': [],
+        'small_desc': u"二次元手游,策略类玩法",
+        'main_desc': "我是游戏简介33333333",
+        'feature_desc': "我是游戏特色333333333",
+        'download_tags': [],
+        'type_tags': [u'二次元'],
+    },
 ]
 
 
@@ -145,6 +157,22 @@ JOBS = [
 
 6、拥有手游成功上线项目者优先
 ''',
+            },
+            {
+                'name': u"cocos2dx程序",     
+                'desc': u'''  ''',
+            },
+            {
+                'name': u"cocos2dx程序",     
+                'desc': u'''  ''',
+            },
+            {
+                'name': u"cocos2dx程序程序程序程序程序",     
+                'desc': u'''  ''',
+            },
+            {
+                'name': u"cocos2dx程序程序程序程序程序",     
+                'desc': u'''  ''',
             },
         ],
     },

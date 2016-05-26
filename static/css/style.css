@@ -12,6 +12,45 @@ body{
 }
 /*--fonts--*/
 /*新增*/
+
+.pagea{
+    line-height: 28px;
+    min-width: 28px;
+    color: #333;
+    border: 1px solid #dfdfdf;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.next{
+    line-height: 28px;
+    min-width: 50px;
+    color: #333;
+    border: 1px solid #dfdfdf;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.end{
+    line-height: 28px;
+    min-width: 70px;
+    color: #333;
+    border: 1px solid #dfdfdf;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+#page li{
+    position: relative;
+    padding-top: 16px;
+    display: inline-block;
+    width: auto;
+}
+
+
 .thumbnail{
     padding: 0px;
 }
@@ -1275,6 +1314,6 @@ input.nuber {
 		min-height: 119px !important;
 		min-width: 75% !important;
 	}
-
-
 }
+
+

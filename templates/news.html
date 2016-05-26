@@ -48,24 +48,29 @@
             </div>
         </div>
         {% endfor %}
-        <div style="float: left;width: 100%;text-align: center">
-            <p>
-                <a href="{% url 'games' pre_pag %}"><span style="padding-right:20px">上一页</span></a>
-                {% for pag_index in total_pags %}
-                    {% if pag_index == pag %}
-                        <span style="color: blue">[{{ pag }}]</span>
-                    {% else %}
-                        <span>[{{ pag }}]</sapn>                     
-                    {% endif %}
-                {% endfor %}
-                <a href="{% url 'games' next_pag %}"><span style="padding-left:20px">下一页</span></a>
+        <!-- 分页 -->
+        <div style="float: left;width: 100%;text-align: center;margin-top: 60px">
+            <ul id="page">
         
-            </p>
+                <li>
+                    <a  class="next" href="{% url 'games' pre_pag %}"><span> < </span></a>
+                </li>
+        
+                {% for pag_index in total_pags %}
+                <li>
+                    {% if pag_index == pag %}
+                        <a class="pagea" href="{% url 'games' pag_index %}" style=" border: 1px solid #0099ff;text-decoration: none"><span style="color: #0099ff">{{ pag_index }}</span></a>
+                    {% else %}
+                        <a class="pagea" href="{% url 'games' pag_index %}"><span>{{ pag_index }}</span></a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+        
+                <li>
+                    <a  class="next" href="{% url 'games' next_pag %}"><span> > </span></a>
+                </li>
+            </ul>
         </div>
-    
-    
-    
-    
     </div>
 </div>
     
