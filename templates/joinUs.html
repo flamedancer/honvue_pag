@@ -34,7 +34,7 @@
             success: function(res) {
                 $("#workDetail").html(res);
                 $(".zizhiwei").css("color","black");
-                $(ids).css("color","blue");
+                $(ids).css("color", "#0099ff");
             }
         });
     }
@@ -106,7 +106,7 @@
                                 {% for job in categoryinfo.info %}
                                 <div style="float: left;width: 50%;margin-top: 10px;">
                                     <p  >
-                                        <span class="zizhiwei"></span>
+                                        <span class="zizhiwei">&gt;</span>
                                         <span class="zizhiwei" id="job{{forloop.parentloop.counter0}}_{{forloop.counter0}}" onclick="choosework('{% url 'jobDesc' forloop.parentloop.counter0 forloop.counter0 %}', '{{forloop.parentloop.counter0}}', '{{forloop.counter0}}')">{{job.name}}</a></span>
                                     </p>
 
@@ -128,7 +128,7 @@
                                 <span id="job_name" style="font-size: 18px;font-family:'微软雅黑 Bold', '微软雅黑';font-weight:700;color:#000000;">系统策划</span>
                                 <br><br>
                                 <div>
-                                    <pre id="workDetail" style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;font-size: 18px;line-height:40px;">
+                                    <pre id="workDetail" style="font-family:'微软雅黑 Regular', '微软雅黑';font-weight:400;font-size: 18px;line-height:40px; border:0">
                                        职能描述 
                                     </pre>
                                 </div>

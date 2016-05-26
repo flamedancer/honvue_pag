@@ -109,7 +109,7 @@
         </div>
     </div>
 </div>
-<div class="container" style="width: 66%;padding:35px" >
+<div class="container" style="padding:35px" >
     <div class="row">
         <div class="col-sm-6 col-md-8"><div class="gameText">游戏产品</div><div class="gameTextE">GAMES</div></div>
         <div class="col-sm-6 col-md-4"><div class="gameMore"><a href="{% url 'games' 1 %}" style="text-decoration:none;font-family:Microsoft YaHei">更多》</a></div></div>
@@ -122,7 +122,7 @@
             <div class="thumbnail">
                 <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="{{game.smpicture}}" alt=""></a>
                     <p class="gameH">{{ game.name }}</p>
-                    <p class="gameDec">{{ game.short_desc }}</p>
+                    <p class="gameDec">{{ game.small_desc }}</p>
                 {% if game.download_tags %}
                     <div class="imgDownload">
                     {% for taginfo in game.download_tags %}

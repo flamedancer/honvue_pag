@@ -35,7 +35,7 @@ GAMES = [
         'small_desc': u"休闲三消,6月9日，与电影同步上线!",
         'main_desc': "我是游戏简介111111111",
         'feature_desc': "我是游戏特色11111111",
-        'download_tags': [ ["/static/images/apple.png", "/static/images/apple1.png", "IOS", ""], ["/static/images/android.png", "/static/images/apple1.png", u"安卓", ""]],
+        'download_tags': [ ["/static/images/apple.png", "/static/images/apple1.png", "IOS", ""], ["/static/images/android.png", "/static/images/android1.png", u"安卓", ""]],
         'type_tags': [u'休闲', u'三消'],
     },
     {
@@ -47,7 +47,7 @@ GAMES = [
         'small_desc': u"竞技策略类游戏,火热删档封测中",
         'main_desc': "我是游戏简介222222222",
         'feature_desc': "我是游戏特色22222222",
-        'download_tags': [ ["/static/images/apple.png", "/static/images/apple1.png", "IOS", ""], ["/static/images/android.png", "/static/images/apple1.png", u"安卓", ""]],
+        'download_tags': [ ["/static/images/apple.png", "/static/images/apple1.png", "IOS", ""], ["/static/images/android.png", "/static/images/android1.png", u"安卓", ""]],
         'type_tags': [u'竞技', u'三消除'],
     },
     {

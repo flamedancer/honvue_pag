@@ -52,18 +52,12 @@
     </style>
 
     <script type="text/javascript">
-
-
-
-
-        function select(url,id){
-            var ids="#"+id;
-            url = "/linkdir/"+url;
-            $("#main").load(url);
+        $(document).ready(function(){ 
+            var id = "{{ toptag }}";
+            var ids="#"+ id;
             $(ids).css({"background-color":'#0099ff',"opacity":"1"});
-            var array= $("#ulId").children().children();
-            $.each(array,function(i,value){
-                var idValue=$(value).attr('id');
+            $("li a").each(function(i){
+                var idValue=$(this).attr('id');
                 var idValues="#"+idValue;
                 if(idValue!=id){
                     $(idValues).css({"background-color":'#333333',"opacity":"0.7"});
@@ -83,9 +77,7 @@
                     });
                 }
             });
-        }
-
-
+        }); 
     </script>
 </head>
 
@@ -94,7 +86,7 @@
     <div id="links">
 
         <div class="header" id="homea">
-            <div class="header_nav" id="home">
+            <div class="header_nav" id="toptags">
                 <nav class="navbar navbar-default chn-gd">
                     <div class="container">
                         <div class="navbar-header" style="margin-left: -6%">
@@ -102,8 +94,8 @@
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right" style="margin-right: -2%" id="ulId">
-                                <li >
-                                    <a id="hy" href="{% url 'home' %}">
+                                <li>
+                                    <a id="home" href="{% url 'home' %}">
                                         <div class="navtitle">
                                             洪禹科技<br>
                                             <div>HOME</div>

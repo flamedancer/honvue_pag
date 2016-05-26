@@ -16,9 +16,9 @@
 
     </div>
 
-    <div class="container" style="min-height: 500px;">
+    <div style="min-height: 500px;">
         {% for game in games %}
-        <div style="background: white;width: 100%;height: 260px; margin-top: 20px;">
+        <div style="background: white;height: 260px; margin-top: 20px;">
             <!-- 产品图片 -->
             <div class="thumbnail" style="float: left;width: 32%;height:100%;padding: 1%;display: inline;border: none">
                 <img src="{{ game.smpicture }}" style="width: 100%;display: inline; float: left;height: 100% ">
@@ -28,13 +28,13 @@
             <div style="float: left;width: 50%;padding-left: 2%;padding-top: 10px;">
                 <!-- 标题 -->
                 <p>
-                    <span style="font-size: 24px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700">{{ game.name }}</span>
+                    <span style="font-size: 24px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700;margin-bottom: 15px;display: block">{{ game.name }}</span>
                 </p>
                 <!-- 标签 -->
                 <div>
                     <div>
                         {% for tag in game.type_tags %}
-                        <span style="border-radius: 5px;display:block;background-color: #34adff;line-height: 30px;text-align: center;font-size: 18px;width: 70px;font-family: Arial;font-weight: 700;color: white;margin-right: 10px;float: left">
+                        <span style="border-radius: 5px;display:block;background-color: #34adff;line-height: 30px;text-align: center;font-size: 18px;width: 70px;font-weight: 700;color: white;margin-right: 10px;float: left">
                             {{ tag }}
                         </span>
                         {% endfor %}
@@ -63,10 +63,17 @@
             <!-- 下载图片 -->
             <div style="float: left;width: 17%;background: none;text-align: center">
                 {% for tag in game.download_tags %}
-                <div class="down{{forloop.counter}}" >
-                    <div style="margin-top: 5px;float: left;width: 20%;padding-left: 2px;"><img src="{{ tag.1 }}" style="display: block;width: 35px;height: 35px;"></div>
-                    <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center">{{tag.2}}版下载 </span>
-                </div>
+                    {% if tag.2 == 'IOS' %}
+                    <div class="down1" >
+                        <div style="margin-top: 5px;float: left;width: 20%;padding-left: 2px;"><img src="{{ tag.1 }}" style="display: block;width: 35px;height: 35px;"></div>
+                        <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center">{{ tag.2 }}版下载 </span>
+                    </div>
+                    {% else %}
+                    <div class="down2">
+                        <div style="margin-top: 2px;float: left;width: 20%"><img src="{{ tag.1 }}" style="display: block;width: 40px;height: 40px;"></div>
+                        <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center;line-height: 45px">{{ tag.2 }}版下载 </span>
+                    </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -74,17 +81,15 @@
     </div>
     <div style="float: left;width: 100%;text-align: center">
         <p>
-            <a href="{% url 'games' pre_pag %}"><span>上一页  &nbsp;&nbsp;   </span></a>
+            <a href="{% url 'games' pre_pag %}"><span style="padding-right:20px">上一页</span></a>
             {% for pag_index in total_pags %}
-                &nbsp;&nbsp;
                 {% if pag_index == pag %}
                     <span style="color: blue">[{{ pag }}]</span>
                 {% else %}
                     <span>[{{ pag }}]</sapn>                     
                 {% endif %}
             {% endfor %}
-            &nbsp;&nbsp;
-            <a href="{% url 'games' next_pag %}"><span>下一页  &nbsp;&nbsp;   </span></a>
+            <a href="{% url 'games' next_pag %}"><span style="padding-left:20px">下一页</span></a>
     
         </p>
     </div>

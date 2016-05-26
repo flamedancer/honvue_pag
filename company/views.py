@@ -10,7 +10,7 @@ def index(request):
 
 
 def home(request):
-    context = {'games': configs.GAMES}
+    context = {'games': configs.GAMES, 'toptag': 'home'}
     return render(request, 'home.html', context)
 
 def games(request, pag=1):
@@ -20,7 +20,7 @@ def games(request, pag=1):
     total_pags = range(1, ((len(configs.GAMES) - 1) / gap + 2))
     pre_pag = (pag - 1) if pag > 1 else 1
     next_pag = (pag + 1) if pag < total_pags[-1] else total_pags[-1]
-    context = {'games': games, 'pag': pag, 'total_pags': total_pags, 'pre_pag': pre_pag, 'next_pag': next_pag}
+    context = {'toptag': 'games', 'games': games, 'pag': pag, 'total_pags': total_pags, 'pre_pag': pre_pag, 'next_pag': next_pag}
     return render(request, 'games.html', context)
 
 def news(request, pag=1):
@@ -30,20 +30,20 @@ def news(request, pag=1):
     total_pags = range(1, ((len(configs.NEWS) - 1) / gap + 2))
     pre_pag = (pag - 1) if pag > 1 else 1
     next_pag = (pag + 1) if pag < total_pags[-1] else total_pags[-1]
-    context = {'news': news, 'pag': pag, 'total_pags': total_pags, 'pre_pag': pre_pag, 'next_pag': next_pag}
+    context = {'toptag': 'news', 'news': news, 'pag': pag, 'total_pags': total_pags, 'pre_pag': pre_pag, 'next_pag': next_pag}
 
     return render(request, 'news.html', context)
 
 def business(request):
-    context = {}
+    context = {'toptag': 'business'}
     return render(request, 'business.html', context)
 
 def joinUs(request):
-    context = {'jobs': configs.JOBS}
+    context = {'toptag': 'joinUs', 'jobs': configs.JOBS}
     return render(request, 'joinUs.html', context)
 
 def aboutUs(request):
-    context = {}
+    context = {'toptag': 'aboutUs'}
     return render(request, 'aboutUs.html', context)
 
 def gameDetail(request, game_index):
@@ -76,4 +76,4 @@ def jobDesc(request, category_index, job_index):
         job = category['info'][job_index]
     except IndexError:
         raise Http404("Job does not exist")
-    return HttpResponse(job['desc'])
+    return HttpResponse(job['desc'].strip())

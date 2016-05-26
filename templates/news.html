@@ -1,63 +1,71 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class="container" style="width: 63%;padding:35px 0px 0px 0px" >
-    <div class="row">
-
-        <div class="col-sm-6 col-md-8"><div class="gameText">公司动态</div><div class="gameTextE">NEWS</div></div>
-
-    </div>
-</div>
-
-<div class="container" style="width: 63%;" id="detail">
-    {% for new in news %}
-    <div class="row" style="margin-top: 2%">
-        <div class="col-md-4" style="padding: 10px;">
-        <img src="{{ new.picture }}" width="100%">
-        </div>
-        <div class="col-md-8">
-            <div class="row" style="margin-top: 2%">
-                <div class="col-md-12" style="font-size: 24px;font-weight: bold;color: #080808">
-                    {{ new.title }}
-                </div>
-            </div>
-            <div class="row" style="margin-top: 2%">
-                <div class="col-md-12"  style="font-size: 18px;color: #adadad">
-                    {{ new.time }}
-                </div>
-
-            </div>
-            <div class="row" style="margin-top: 2%">
-                <div class="col-md-12"  style="font-size: 18px;color: #adadad">
-                    {{ news.desc|truncatewords:150 }}
-                </div>
-
-
-            </div>
-            <div class="row">
-                <div class="col-md-12" style="text-align: right;margin-top: -1%;margin-bottom: 1%">
-                   <a href="{% url 'newsDetail' forloop.counter0 %}" style="text-decoration:none;font-size: 18px">阅读全文>></a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    {% endfor %}
-    <div style="float: left;width: 100%;text-align: center">
-        <p>
-            <a href="{% url 'games' pre_pag %}"><span>上一页  &nbsp;&nbsp;   </span></a>
-            {% for pag_index in total_pags %}
-                &nbsp;&nbsp;
-                {% if pag_index == pag %}
-                    <span style="color: blue">[{{ pag }}]</span>
-                {% else %}
-                    <span>[{{ pag }}]</sapn>                     
-                {% endif %}
-            {% endfor %}
-            &nbsp;&nbsp;
-            <a href="{% url 'games' next_pag %}"><span>下一页  &nbsp;&nbsp;   </span></a>
-    
+<div class="container" style="margin-bottom: 150px">
+    <div  style="margin-top: 70px;margin-bottom: 30px;">
+        <p style="text-align: left">
+                <span style="font-size: 36px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700">
+                    公司动态
+                </span>
+                <span style="margin-left: 10px;font-size: 24px;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #999999;font-weight: 700">
+                    NEWS
+                </span>
         </p>
+    
+    </div>
+
+
+    <div class="container" style="min-height: 500px;" id="detail">
+        {% for new in news %}
+        <div class="row" style="margin-top: 2%;background: white;">
+            <div class="col-md-4" style="padding: 10px;">
+            <img src="{{ new.picture }}" width="100%">
+            </div>
+            <div class="col-md-8">
+                <div class="row" style="margin-top: 2%">
+                    <div class="col-md-12" style="font-size: 24px;font-weight: bold;color: #080808">
+                        {{ new.title }}
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 2%">
+                    <div class="col-md-12"  style="font-size: 18px;color: #adadad">
+                        {{ new.time }}
+                    </div>
+    
+                </div>
+                <div class="row" style="margin-top: 2%">
+                    <div class="col-md-12"  style="font-size: 18px;color: #adadad">
+                        {{ news.desc|truncatewords:150 }}
+                    </div>
+    
+    
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="text-align: right;margin-top: -1%;margin-bottom: 1%">
+                       <a href="{% url 'newsDetail' forloop.counter0 %}" style="text-decoration:none;font-size: 18px">阅读全文>></a>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        {% endfor %}
+        <div style="float: left;width: 100%;text-align: center">
+            <p>
+                <a href="{% url 'games' pre_pag %}"><span style="padding-right:20px">上一页</span></a>
+                {% for pag_index in total_pags %}
+                    {% if pag_index == pag %}
+                        <span style="color: blue">[{{ pag }}]</span>
+                    {% else %}
+                        <span>[{{ pag }}]</sapn>                     
+                    {% endif %}
+                {% endfor %}
+                <a href="{% url 'games' next_pag %}"><span style="padding-left:20px">下一页</span></a>
+        
+            </p>
+        </div>
+    
+    
+    
+    
     </div>
 </div>
     

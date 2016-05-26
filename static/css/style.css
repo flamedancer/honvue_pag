@@ -1,7 +1,6 @@
 h4, h5, h6,
 h1, h2, h3 {margin: 0;}
 ul, ol, li{margin: 0;}
-p {margin: 0;}
 body{
 	margin:0;
 	padding:0;
@@ -20,11 +19,13 @@ body{
     font-family: '微软雅黑 Bold', 微软雅黑;
     font-size: 24px;
     padding-left: 20px;
+    padding-top: 5px;
 }
 .gameDec{
     font-family: '微软雅黑 Bold', 微软雅黑;
     font-size: 18px;
     padding-left: 40px;
+    color: #adadad;
 }
 .gameQd{
     font-family: '微软雅黑 Bold', 微软雅黑;
