@@ -24,7 +24,7 @@ def games(request, pag=1):
     return render(request, 'games.html', context)
 
 def news(request, pag=1):
-    gap = 10
+    gap = 3 
     pag = int(pag)
     news = configs.NEWS[(pag -1)*gap:gap*pag]
     total_pags = range(1, ((len(configs.NEWS) - 1) / gap + 2))

@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<div class="container" style="margin-bottom: 150px">
+<div class="container">
 
     <div  style="margin-top: 70px;margin-bottom: 30px;">
         <p style="text-align: left">
@@ -49,7 +49,7 @@
                 <div style="width: 100%;float: left;margin-top: 40px;" >
                     <p>
                         <span style="white-space: normal;font-size: 18px;font-family: '微软雅黑 Regular', '微软雅黑';color: #adadad">
-                            {{ game.main_desc|truncatewords:80 }}
+                            {{ game.main_desc|truncatechars:80 }}
                         </span>
                     </p>
                 </div>
@@ -101,7 +101,7 @@
             <ul id="page">
     
                 <li>
-                    <a  class="next" href="{% url 'games' pre_pag %}"><span> < </span></a>
+                    <a  class="next" href="{% url 'games' pre_pag %}"><span>&lt;</span></a>
                 </li>
                 {% for pag_index in total_pags %}
                 <li>
@@ -114,7 +114,7 @@
                 {% endfor %}
     
                 <li>
-                    <a  class="next" href="{% url 'games' next_pag %}"><span> > </span></a>
+                    <a  class="next" href="{% url 'games' next_pag %}"><span>&gt;</span></a>
                 </li>
             </ul>
     </div>

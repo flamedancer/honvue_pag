@@ -27,7 +27,7 @@
         var ids="#job"+category_index+"_"+job_index;
         //根据请求路径获取对应的返回
         var job_name = $(ids).html();
-        $("#job_name").html(job_name);
+        $("#job_name").html(job_name.substring(4));
         $.ajax({
             type:"GET",
             url:url,
@@ -39,7 +39,9 @@
             }
         });
     }
-    choosework('{% url 'jobDesc' 0 0 %}', 0, 0);
+    $(document).ready(function() {
+        choosework('{% url 'jobDesc' 0 0 %}', 0, 0);
+    });
 </script>
 
 
@@ -112,8 +114,7 @@
                                     <div style="float: left;width:100%;margin-top: 10px;">
                                     {% endif %}
                                         <p>
-                                            <span class="zizhiwei">&gt;</span>
-                                            <span class="zizhiwei" id="job{{forloop.parentloop.counter0}}_{{forloop.counter0}}" onclick="choosework('{% url 'jobDesc' forloop.parentloop.counter0 forloop.counter0 %}', '{{forloop.parentloop.counter0}}', '{{forloop.counter0}}')">{{job.name}}</a></span>
+                                            <span class="zizhiwei" id="job{{forloop.parentloop.counter0}}_{{forloop.counter0}}" onclick="choosework('{% url 'jobDesc' forloop.parentloop.counter0 forloop.counter0 %}', '{{forloop.parentloop.counter0}}', '{{forloop.counter0}}')">&gt;{{job.name}}</a></span>
                                         </p>
 
                                     </div>

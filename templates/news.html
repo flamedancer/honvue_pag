@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container" style="margin-bottom: 150px">
+<div class="container">
     <div  style="margin-top: 70px;margin-bottom: 30px;">
         <p style="text-align: left">
                 <span style="font-size: 36px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="row" style="margin-top: 2%">
                     <div class="col-md-12"  style="font-size: 18px;color: #adadad">
-                        {{ news.desc|truncatewords:150 }}
+                        {{ new.content|truncatechars:150 }}
                     </div>
     
     
@@ -53,21 +53,21 @@
             <ul id="page">
         
                 <li>
-                    <a  class="next" href="{% url 'games' pre_pag %}"><span> < </span></a>
+                    <a  class="next" href="{% url 'news' pre_pag %}"><span>&lt;</span></a>
                 </li>
         
                 {% for pag_index in total_pags %}
                 <li>
                     {% if pag_index == pag %}
-                        <a class="pagea" href="{% url 'games' pag_index %}" style=" border: 1px solid #0099ff;text-decoration: none"><span style="color: #0099ff">{{ pag_index }}</span></a>
+                        <a class="pagea" href="{% url 'news' pag_index %}" style=" border: 1px solid #0099ff;text-decoration: none"><span style="color: #0099ff">{{ pag_index }}</span></a>
                     {% else %}
-                        <a class="pagea" href="{% url 'games' pag_index %}"><span>{{ pag_index }}</span></a>
+                        <a class="pagea" href="{% url 'news' pag_index %}"><span>{{ pag_index }}</span></a>
                     {% endif %}
                 </li>
                 {% endfor %}
         
                 <li>
-                    <a  class="next" href="{% url 'games' next_pag %}"><span> > </span></a>
+                    <a  class="next" href="{% url 'news' next_pag %}"><span>&gt;</span></a>
                 </li>
             </ul>
         </div>
