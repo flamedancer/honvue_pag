@@ -76,4 +76,4 @@ def jobDesc(request, category_index, job_index):
         job = category['info'][job_index]
     except IndexError:
         raise Http404("Job does not exist")
-    return HttpResponse(job['desc'].strip())
+    return HttpResponse(job['desc'].lstrip())

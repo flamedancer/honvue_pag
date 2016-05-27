@@ -78,9 +78,10 @@ body{
 .gameQdJQ{
     text-align: right;
     width: 100%;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 14px;
+    margin-top: 14px;
 }
+
 .imgDownload{
     text-align: right;
     width: 100%;
@@ -100,7 +101,6 @@ body{
 
 .down1{
     margin-top: 100px;
-    background-color: #029aff;
     height: 45px;
     width: 140px;
     margin-left: 30px;
@@ -110,7 +110,6 @@ body{
 
 .down2{
     margin-top: 30px;
-    background-color: #51da75;
     height: 45px;
     width: 140px;
     margin-left: 30px;

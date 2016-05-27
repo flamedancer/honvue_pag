@@ -34,7 +34,7 @@
                 <div>
                     <div>
                         {% for tag in game.type_tags %}
-                        <span style="border-radius: 5px;display:block;background-color: #34adff;line-height: 30px;text-align: center;font-size: 18px;width: 70px;font-weight: 700;color: white;margin-right: 10px;float: left">
+                        <span style="border-radius: 5px;display:block;background-color: #34adff;line-height: 30px;text-align: center;font-size: 18px;width: 70px;font-weight: 400;color: white;margin-right: 10px;float: left">
                             {{ tag }}
                         </span>
                         {% endfor %}
@@ -64,12 +64,20 @@
             <div style="float: left;width: 17%;background: none;text-align: center">
                 {% for tag in game.download_tags %}
                     {% if tag.2 == 'IOS' %}
-                    <div class="down1">
+                    {% if tag.3 %}
+                    <div class="down1" style="background-color: #029aff;">
+                    {% else %}
+                    <div class="down1" style="background-color: #9a9a9a;">
+                    {% endif %}
                         <div style="margin-top: 5px;float: left;width: 20%;padding-left: 2px;"><img src="{{ tag.1 }}" style="display: block;width: 35px;height: 35px;"></div>
                         <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center">{{ tag.2 }}版下载 </span>
                     </div>
                     {% else %}
-                    <div class="down2">
+                    {% if tag.3 %}
+                    <div class="down2" style="background-color: #51da75;">
+                    {% else %}
+                    <div class="down2" style="background-color: #9a9a9a;">
+                    {% endif %}
                         <div style="margin-top: 2px;float: left;width: 20%"><img src="{{ tag.1 }}" style="display: block;width: 40px;height: 40px;"></div>
                         <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center;line-height: 45px">{{ tag.2 }}版下载 </span>
                     </div>
