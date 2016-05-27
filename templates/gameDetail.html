@@ -20,9 +20,9 @@
             </p>
 
             <p>
-                <span style="white-space: normal;font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal;">
-                    {{ game.main_desc|truncatechars:180 }}
-                </span>
+                <pre style="font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal; border:0;">
+                    {{ game.main_desc }}
+                </pre>
             </p>
 
         </div>
@@ -53,9 +53,9 @@
                 </span>
             </p>
             <p>
-                <span style="white-space: normal;font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal;">
-                    {{ game.feature_desc|truncatechars:100 }}
-                </span>
+            <pre style="font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal; border:0;">
+                {{ game.feature_desc }}
+            </pre>
             </p>
         </div>
     </div>
