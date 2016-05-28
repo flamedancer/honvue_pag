@@ -1,29 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container" style="width: 64%;padding:90px 0px 0px 0px;" >
-    <div class="row" >
-
-        <div class="col-md-12" style="text-align: center;font-size:36px;font-weight: bold">公司动态</div>
-
+<div class="container">
+    <div style="text-align: center;margin-top: 5%">
+        <p>
+            <span style="text-align: center ;font-size: 36px;font-family: '微软雅黑 Bold', 微软雅黑">
+                {{ new.title }}
+            </span>
+        </p>
     </div>
-</div>
-<div class="row" style="width: 90%;text-align: center;margin-left: 5%;padding-top:2%;" align="center">
+
+
     <div>
-            <img src="/static/images/{{ new.bigpicture }}" alt="">
+        <div class="row" style="width: 90%;text-align: center;margin-left: 5%;padding-top:2%;" align="center">
+            <div >
+                    <img src="/static/images/{{ new.bigpicture }}" alt="">
+            </div>
+        </div>
+        
+        <div style="text-align: left;margin-bottom: 200px;padding-top:2%;">
+        
+            <pre class="preword">
+                {{ new.content }}
+            </pre>
+        </div>
     </div>
+
 </div>
 
-<div class="container" style="width: 63%;font-size: 18px;margin-top: 2%;line-height: 1.5em;">
-
-    <pre style="font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal; border:0;">
-        {{ new.content }}
-    </pre>
-</div>
-
-
-<div id="footerId"></div>
-
-</body>
-</html>
 {% endblock %}
