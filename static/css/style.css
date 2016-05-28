@@ -12,6 +12,14 @@ body{
 }
 /*--fonts--*/
 /*新增*/
+/*纯文本*/
+.preword {
+    line-height: 200%;
+    font-family:'微软雅黑';
+    font-size: 18px;
+    font-style: normal;
+    border:0;
+}
 
 .pagea{
     line-height: 28px;

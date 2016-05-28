@@ -23,10 +23,10 @@
 
 
 <script type="text/javascript">
-    function choosework(url, category_index, job_index){
-        var ids="#job"+category_index+"_"+job_index;
-        //根据请求路径获取对应的返回
+    function choosework(url, job_id){
+        var ids="#job"+job_id;
         var job_name = $(ids).html();
+        //根据请求路径获取对应的返回
         $("#job_name").html(job_name.substring(4));
         $.ajax({
             type:"GET",
@@ -40,7 +40,8 @@
         });
     }
     $(document).ready(function() {
-        choosework('{% url 'jobDesc' 0 0 %}', 0, 0);
+        var first_job = $(".zizhiweiname:first");
+        first_job.click();
     });
 </script>
 
@@ -76,7 +77,7 @@
 
     <div style="width: 140%;border-bottom: 1px solid rgba(98, 89, 93, 0.51);margin-left: -20%; "></div>
 
-    <div class="container" style="margin-top: 60px">
+    <div style="margin-top: 60px">
         <div>
             <p style="text-align: left">
             <span style="font-size: 36px ;font-family: '微软雅黑 Bold', 微软雅黑 ;color: #000000;font-weight: 700">
@@ -89,7 +90,7 @@
         </div>
 
 
-        <div  class="container" style="margin-top: 0px">
+        <div  style="margin-top: 0px">
 
             <table style="width: 100%">
                 <tr style="width: 100%;" >
@@ -97,24 +98,24 @@
                         <!-- 分类 -->
                         <div style="margin-top: 10px;">
 
-                            {% for categoryinfo in jobs %}
+                            {% for category in categorys %}
                             <div >
                                 <!-- 主分类 -->
                                 <div style="float: left;width: 100%;margin-top:20px;">
                                     <p>
-                                        <span class="zhiwei">{{ categoryinfo.category }}</span>
+                                        <span class="zhiwei">{{ category.name }}</span>
                                     </p>
                                 </div>
                                 <!-- 小分类 -->
                                 <div style="padding-top:10px;float:left;width:100%">
-                                {% for job in categoryinfo.info %}
+                                {% for job in category.job_set.all %}
                                     {% if job.name|length <= 10 %}
                                     <div style="float: left;width:50%;margin-top: 10px;">
                                     {% else %}
                                     <div style="float: left;width:100%;margin-top: 10px;">
                                     {% endif %}
                                         <p>
-                                            <span class="zizhiwei" id="job{{forloop.parentloop.counter0}}_{{forloop.counter0}}" onclick="choosework('{% url 'jobDesc' forloop.parentloop.counter0 forloop.counter0 %}', '{{forloop.parentloop.counter0}}', '{{forloop.counter0}}')">&gt;{{job.name}}</a></span>
+                                            <span class="zizhiwei zizhiweiname" id="job{{job.id}}" onclick="choosework('{% url 'jobDesc' job.id %}', '{{job.id}}')">&gt;{{job.name}}</a></span>
                                         </p>
 
                                     </div>

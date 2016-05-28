@@ -2,7 +2,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from . import configs
+from .models import Game, New, JobCategory, Job
 from django.http import Http404
+from django.shortcuts import get_object_or_404
 
 
 def index(request):
@@ -10,14 +12,16 @@ def index(request):
 
 
 def home(request):
-    context = {'games': configs.GAMES, 'toptag': 'home'}
+    games = Game.objects.order_by('index')
+    context = {'games': games, 'toptag': 'home'}
     return render(request, 'home.html', context)
 
 def games(request, pag=1):
     gap = 3
     pag = int(pag)
-    games = configs.GAMES[(pag -1)*gap:gap*pag]
-    total_pags = range(1, ((len(configs.GAMES) - 1) / gap + 2))
+    all_games = Game.objects.order_by('index') 
+    games = all_games[(pag -1)*gap:gap*pag]
+    total_pags = range(1, ((len(all_games) - 1) // gap + 2))
     pre_pag = (pag - 1) if pag > 1 else 1
     next_pag = (pag + 1) if pag < total_pags[-1] else total_pags[-1]
     context = {'toptag': 'games', 'games': games, 'pag': pag, 'total_pags': total_pags, 'pre_pag': pre_pag, 'next_pag': next_pag}
@@ -26,8 +30,9 @@ def games(request, pag=1):
 def news(request, pag=1):
     gap = 3 
     pag = int(pag)
-    news = configs.NEWS[(pag -1)*gap:gap*pag]
-    total_pags = range(1, ((len(configs.NEWS) - 1) / gap + 2))
+    all_news = New.objects.order_by('-pub_date')
+    news = all_news[(pag -1)*gap: gap*pag]
+    total_pags = range(1, ((len(all_news) - 1) // gap + 2))
     pre_pag = (pag - 1) if pag > 1 else 1
     next_pag = (pag + 1) if pag < total_pags[-1] else total_pags[-1]
     context = {'toptag': 'news', 'news': news, 'pag': pag, 'total_pags': total_pags, 'pre_pag': pre_pag, 'next_pag': next_pag}
@@ -39,7 +44,8 @@ def business(request):
     return render(request, 'business.html', context)
 
 def joinUs(request):
-    context = {'toptag': 'joinUs', 'jobs': configs.JOBS}
+    categorys = JobCategory.objects.order_by('index')
+    context = {'toptag': 'joinUs', 'categorys': categorys}
     return render(request, 'joinUs.html', context)
 
 def aboutUs(request):
@@ -48,32 +54,19 @@ def aboutUs(request):
 
 def gameDetail(request, game_index):
     game_index = int(game_index) 
-    try:
-        game = configs.GAMES[game_index]
-    except IndexError:
-        raise Http404("Game does not exist")
+    game = get_object_or_404(Game, index=game_index)
     context = {'game': game}
     return render(request, 'gameDetail.html', context)
 
-def newsDetail(request, new_index):
-    new_index = int(new_index) 
-    try:
-        new = configs.NEWS[new_index]
-    except IndexError:
-        raise Http404("Game does not exist")
+def newsDetail(request, new_id):
+    new_id = int(new_id) 
+    new = get_object_or_404(New, id=new_id)
     context = {'new': new}
     return render(request, 'newsDetail.html', context)
 
-def jobDesc(request, category_index, job_index):
-    category_index = int(category_index) 
+def jobDesc(request, job_id):
     try:
-        category = configs.JOBS[category_index]
+        job = get_object_or_404(Job, id=job_id)
     except IndexError:
         raise Http404("Job does not exist")
-
-    job_index = int(job_index) 
-    try:
-        job = category['info'][job_index]
-    except IndexError:
-        raise Http404("Job does not exist")
-    return HttpResponse(job['desc'].lstrip())
+    return HttpResponse(job.desc.lstrip())

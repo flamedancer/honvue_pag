@@ -21,7 +21,7 @@
         <div style="background: white;height: 260px; margin-top: 20px;">
             <!-- 产品图片 -->
             <div class="thumbnail" style="float: left;width: 32%;height:100%;padding: 1%;display: inline;border: none">
-                <img src="{{ game.smpicture }}" style="width: 100%;display: inline; float: left;height: 100% ">
+                <img src="/static/images/{{ game.smpicture }}" style="width: 100%;display: inline; float: left;height: 100% ">
             </div>
 
             <!-- 产品介绍 -->
@@ -33,7 +33,7 @@
                 <!-- 标签 -->
                 <div>
                     <div>
-                        {% for tag in game.type_tags %}
+                        {% for tag in game.get_type_tags %}
                         <span style="border-radius: 5px;display:block;background-color: #34adff;line-height: 30px;text-align: center;font-size: 18px;width: 70px;font-weight: 400;color: white;margin-right: 10px;float: left">
                             {{ tag }}
                         </span>

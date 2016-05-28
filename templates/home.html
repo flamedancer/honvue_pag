@@ -86,11 +86,11 @@
                 {% for game in games %}
                     {% if forloop.first %}
                         <div class="item active image-wid" align="center">
-                           <a href="{% url 'gameDetail' forloop.counter0 %}"><img  src="{{ game.bigpicture }}" alt="..." class="img-responsive"></a>
+                           <a href="{% url 'gameDetail' forloop.counter0 %}"><img  src="/static/images/{{ game.bigpicture }}" alt="..." class="img-responsive"></a>
                         </div>
                     {% else %}
                         <div class="item  image-wid" align="center">
-                            <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="{{ game.bigpicture }}" alt="..." class="img-responsive"></a>
+                            <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="/static/images/{{ game.bigpicture }}" alt="..." class="img-responsive"></a>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -119,18 +119,21 @@
         <div class="col-xs-4 col-md-4">
             <div class="thumbnail">
                 <div>
-                    <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="{{game.smpicture}}" alt=""></a>
+                    <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="static/images/{{game.smpicture}}" alt=""></a>
                     <p class="gameH">{{ game.name }}</p>
                     <p class="gameDec">{{ game.small_desc }}</p>
                 </div>
-                {% if game.download_tags %}
-                    <div class="imgDownload">
-                    {% for taginfo in game.download_tags %}
-                        <img src="{{ taginfo.0 }}">
-                    {% endfor %}
-                    </div>
-                {% else %}
+                {% if not game.IOS_link and not game.ANDROID_link %}
                     <div class="gameQdJQ"><span class="gameQd">敬请期待</span></div>
+                {% else %}
+                    {% if game.IOS_link %}
+                    <div class="imgDownload">
+                        <img src="/static/images/apple.png">
+                    {% endif %}
+                    {% if game.ANDROID_link %}
+                        <img src="/static/images/android.png">
+                    </div>
+                    {% endif %}
                 {% endif %}
             </div>
         </div>

@@ -8,7 +8,6 @@
                 {{ game.name }}
             </span>
         </p>
-
     </div>
 
     <div>
@@ -20,9 +19,7 @@
             </p>
 
             <p>
-                <pre style="font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal; border:0;">
-                    {{ game.main_desc }}
-                </pre>
+                <pre class="preword">{{ game.main_desc }}</pre>
             </p>
 
         </div>
@@ -35,10 +32,10 @@
             </p>
 
             <div class="row" style="width: 90%;text-align: center;margin-left: 5%" align="center">
-                {% for showpicture in game.showpictures|slice:":3" %}
+                {% for showpicture in game.get_showpictures|slice:":3" %}
                 <div class="col-sm-6 col-md-4" >
                     <div class="thumbnail">
-                        <img src="{{ showpicture }}" alt="">
+                        <img src="/static/images/{{ showpicture }}" alt="">
                     </div>
                 </div>
                 {% endfor %}
@@ -53,9 +50,7 @@
                 </span>
             </p>
             <p>
-            <pre style="font-family: '微软雅黑 Regular',微软雅黑;font-size: 18px;font-style: normal; border:0;">
-                {{ game.feature_desc }}
-            </pre>
+            <pre class="preword">{{ game.feature_desc }}</pre>
             </p>
         </div>
     </div>

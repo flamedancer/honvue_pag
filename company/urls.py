@@ -11,6 +11,6 @@ urlpatterns = [
     url(r'^joinUs$', views.joinUs, name='joinUs'),
     url(r'^aboutUs$', views.aboutUs, name='aboutUs'),
     url(r'^gameDetail/(?P<game_index>\d+)$', views.gameDetail, name='gameDetail'),
-    url(r'^newsDetail/(?P<new_index>\d+)$', views.newsDetail, name='newsDetail'),
-    url(r'^jobDesc/(?P<category_index>\d+)/(?P<job_index>\d+)$', views.jobDesc, name='jobDesc'),
+    url(r'^newsDetail/(?P<new_id>\d+)$', views.newsDetail, name='newsDetail'),
+    url(r'^jobDesc/(?P<job_id>\d+)$', views.jobDesc, name='jobDesc'),
 ]
