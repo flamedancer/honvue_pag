@@ -55,13 +55,13 @@ def aboutUs(request):
 def gameDetail(request, game_index):
     game_index = int(game_index) 
     game = get_object_or_404(Game, index=game_index)
-    context = {'game': game}
+    context = {'toptag': 'games', 'game': game}
     return render(request, 'gameDetail.html', context)
 
 def newsDetail(request, new_id):
     new_id = int(new_id) 
     new = get_object_or_404(New, id=new_id)
-    context = {'new': new}
+    context = {'toptag': 'news', 'new': new}
     return render(request, 'newsDetail.html', context)
 
 def jobDesc(request, job_id):
