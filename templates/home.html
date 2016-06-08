@@ -126,14 +126,14 @@
                 {% if not game.IOS_link and not game.ANDROID_link %}
                     <div class="gameQdJQ"><span class="gameQd">敬请期待</span></div>
                 {% else %}
-                    {% if game.IOS_link %}
                     <div class="imgDownload">
+                    {% if game.IOS_link %}
                         <img src="/static/images/apple.png"  onclick="window.open('{{game.IOS_link}}')">
                     {% endif %}
                     {% if game.ANDROID_link %}
                         <img src="/static/images/android.png" onclick="window.open('{{game.ANDROID_link}}')">
-                    </div>
                     {% endif %}
+                    </div>
                 {% endif %}
             </div>
         </div>
