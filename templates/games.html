@@ -64,20 +64,20 @@
             <div style="float: left;width: 17%;background: none;text-align: center">
                 
                 {% if game.IOS_link %}
-                <div class="down1" style="background-color: #029aff;">
+                <div class="down1" style="background-color: #029aff;cursor:pointer">
                 {% else %}
                 <div class="down1" style="background-color: #9a9a9a;">
                 {% endif %}
                     <div style="margin-top: 5px;float: left;width: 20%;padding-left: 2px;"><img src="/static/images/apple1.png" style="display: block;width: 35px;height: 35px;"></div>
-                    <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center">IOS版下载 </span>
+                    <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center" onclick="window.open('{{game.IOS_link}}')">IOS版下载</span>
                 </div>
                 {% if game.ANDROID_link %}
-                <div class="down2" style="background-color: #51da75;">
+                <div class="down2" style="background-color: #51da75;cursor:pointer">
                 {% else %}
                 <div class="down2" style="background-color: #9a9a9a;">
                 {% endif %}
                     <div style="margin-top: 2px;float: left;width: 20%"><img src="/static/images/android1.png" style="display: block;width: 40px;height: 40px;"></div>
-                    <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center;line-height: 45px">安卓版下载 </span>
+                    <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center;line-height: 45px" onclick="window.open('{{game.ANDROID_link}}')">安卓版下载 </span>
                 </div>
             </div>
         </div>

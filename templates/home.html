@@ -128,10 +128,10 @@
                 {% else %}
                     {% if game.IOS_link %}
                     <div class="imgDownload">
-                        <img src="/static/images/apple.png">
+                        <img src="/static/images/apple.png"  onclick="window.open('{{game.IOS_link}}')">
                     {% endif %}
                     {% if game.ANDROID_link %}
-                        <img src="/static/images/android.png">
+                        <img src="/static/images/android.png" onclick="window.open('{{game.ANDROID_link}}')">
                     </div>
                     {% endif %}
                 {% endif %}
