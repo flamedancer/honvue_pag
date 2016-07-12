@@ -101,6 +101,7 @@
             }
     
             $("#login").click(function(){
+                clear();
                 $('.theme-popover-mask').fadeIn(100);
                 $("#registDiv").fadeOut(100);
                 $("#loginDiv").slideDown(200);
@@ -112,9 +113,9 @@
             })
     
             $("#regist").click(function(){
+                clear();
                 $('.theme-popover-mask').fadeIn(100);
                 $("#loginDiv").fadeOut(100);
-    
                 $("#registDiv").slideDown(200);
             })
             $("#registDivClose").click(function(){
@@ -169,6 +170,14 @@
                 },
             "json");
     
+        }
+        function clear(){
+             $("#loginname").val("");
+             $("#loginpw").val("");
+             $("#loginErrorMsg").html("");
+             $("#registername").val("");
+             $("#registerpw").val("");
+             $("#registErrorMsg").html("");
         }
     
     
