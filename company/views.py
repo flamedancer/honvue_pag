@@ -1,10 +1,64 @@
 # -*- coding: utf-8 -*-
+import json
 from django.shortcuts import render
 from django.http import HttpResponse
+# from django.http import HttpResponseRedirect
 from . import configs
-from .models import Game, New, JobCategory, Job
+from .models import Game, New, JobCategory, Job, HyMember
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+
+
+def login(request):
+    info = {
+        'flag': False,
+        'username': '',
+        'errmsg': '',
+    }
+    try:
+        m = HyMember.objects.get(username=str(request.POST['username']))
+    except:
+        info['errmsg'] =  u"用户名不存在"
+    else:
+        if m.password != m.dim_password(request.POST['password']):
+            info['errmsg'] = u"密码不正确"
+        else:
+            request.session['member_id'] = m.member_id
+            info['flag'] = True
+            info['username'] = m.username
+    return HttpResponse(json.dumps(info))
+    
+
+def register(request): 
+    info = {
+        'flag': False,
+        'username': '',
+        'errormsg': '',
+    }
+    try:
+        username = str(request.POST['username'])
+    except UnicodeEncodeError:
+        info['errmsg'] = u'用户名必须由字母和数字组成'
+        return HttpResponse(json.dumps(info))
+    try:
+        pw = str(request.POST['password']) 
+    except UnicodeEncodeError:
+        info['errmsg'] = u'密码必须由字母数字符号组成'
+        return HttpResponse(json.dumps(info))
+    # 密码不为空
+    if pw == '':
+        info['errmsg'] = u'密码不能为空'
+        return HttpResponse(json.dumps(info))
+    try:
+        m = HyMember.objects.get(username=username)
+    except:
+        m = HyMember.create_new_user(username, pw)
+        info['flag'] = True
+        info['username'] = m.username
+        request.session['member_id'] = m.member_id
+    else:
+        info['errmsg'] =  u"用户名已存在"
+    return HttpResponse(json.dumps(info))
 
 
 def index(request):
