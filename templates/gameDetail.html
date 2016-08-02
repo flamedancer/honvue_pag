@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 
 <div class="container">
     <div style="text-align: center;margin-top: 5%">
@@ -35,7 +36,7 @@
                 {% for showpicture in game.get_showpictures|slice:":3" %}
                 <div class="col-sm-6 col-md-4" >
                     <div class="thumbnail">
-                        <img src="/static/images/{{ showpicture }}" alt="">
+                        <img src="{% static '/static/images/' %}{{ showpicture }}" alt="">
                     </div>
                 </div>
                 {% endfor %}

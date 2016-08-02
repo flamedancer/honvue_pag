@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 
 
 <div class="container">
@@ -21,7 +22,7 @@
         <div style="background: white;height: 260px; margin-top: 20px;">
             <!-- 产品图片 -->
             <div class="thumbnail" style="float: left;width: 32%;height:100%;padding: 1%;display: inline;border: none">
-                <img src="/static/images/{{ game.smpicture }}" style="width: 100%;display: inline; float: left;height: 100% ">
+                <img src="{% static '/static/images/' %}{{ game.smpicture }}" style="width: 100%;display: inline; float: left;height: 100% ">
             </div>
 
             <!-- 产品介绍 -->
@@ -68,7 +69,7 @@
                 {% else %}
                 <div class="down1" style="background-color: #9a9a9a;">
                 {% endif %}
-                    <div style="margin-top: 5px;float: left;width: 20%;padding-left: 2px;"><img src="/static/images/apple1.png" style="display: block;width: 35px;height: 35px;"></div>
+                    <div style="margin-top: 5px;float: left;width: 20%;padding-left: 2px;"><img src="{% static '/static/images/apple1.png' %}" style="display: block;width: 35px;height: 35px;"></div>
                     <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center" onclick="window.open('{{game.IOS_link}}')">IOS版下载</span>
                 </div>
                 {% if game.ANDROID_link %}
@@ -76,7 +77,7 @@
                 {% else %}
                 <div class="down2" style="background-color: #9a9a9a;">
                 {% endif %}
-                    <div style="margin-top: 2px;float: left;width: 20%"><img src="/static/images/android1.png" style="display: block;width: 40px;height: 40px;"></div>
+                    <div style="margin-top: 2px;float: left;width: 20%"><img src="{% static '/static/images/android1.png' %}" style="display: block;width: 40px;height: 40px;"></div>
                     <span style="font-family: '微软雅黑 Regular', '微软雅黑';font-size: 18px;color: white;float: left;width: 80%;text-align: center;line-height: 45px" onclick="window.open('{{game.ANDROID_link}}')">安卓版下载 </span>
                 </div>
             </div>

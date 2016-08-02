@@ -1,23 +1,24 @@
 <!doctype html>
+{% load static %}
 <html>
 <head>
     <title>洪禹科技</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="洪禹科技,洪禹,Honvue" />
-    <link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico"/>
-    <link href="/static/css/lanrenzhijia.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/static/images/favicon.ico' %}"/>
+    <link href="{% static '/static/css/lanrenzhijia.css' %}" rel="stylesheet">
     <!--owlcss-->
-    <link href="/static/css/owl.carousel.css" rel="stylesheet">
+    <link href="{% static '/static/css/owl.carousel.css' %}" rel="stylesheet">
     <!--bootstrap-->
-    <link href="/static/js/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static '/static/js/bootstrap/3.0.3/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
     <!--coustom css-->
-    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="{% static '/static/css/style.css' %}" rel="stylesheet" type="text/css"/>
     <!--default-js-->
-    <script  src="/static/js/jquery-2.1.4.min.js"></script>
+    <script  src="{% static '/static/js/jquery-2.1.4.min.js' %}"></script>
     <!--coustom-js-->
-    <script  src="/static/js/main.js"></script>
+    <script  src="{% static '/static/js/main.js' %}"></script>
     <!--bootstrap-js-->
-    <script src="/static/js/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="{%static '/static/js/bootstrap/3.0.3/js/bootstrap.min.js' %}"></script>
     <!--script-->
 
     <!--script-->
@@ -266,7 +267,7 @@
                 <nav class="navbar navbar-default chn-gd">
                     <div class="container">
                         <div class="navbar-header" style="margin-left: -6%">
-                            <div id="u35"><img id="u35_img" class="img" src="/static/images/logo1.png"></div>
+                            <div id="u35"><img id="u35_img" class="img" src="{% static '/static/images/logo1.png' %}"></div>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right" style="margin-right: -2%" id="ulId">
@@ -360,7 +361,7 @@
     
         </div>
         <div style="text-align: center;float: left;width: 100%">
-            <img src="/static/images/faci.png" style="width: 60px;height: 60px;margin-top: 0px">
+            <img src="{% static '/static/images/faci.png' %}" style="width: 60px;height: 60px;margin-top: 0px">
         </div>
         <div style="text-align: center;float: left;width: 100%;margin-top: 20px">
             <span style="font-size: 30px;color: #424242;font-weight: normal">洪禹账号登录</span>
@@ -395,7 +396,7 @@
     
         </div>
         <div style="text-align: center;float: left;width: 100%">
-            <img src="/static/images/faci.png" style="width: 60px;height: 60px;margin-top: 0px">
+            <img src="{% static '/static/images/faci.png' %}" style="width: 60px;height: 60px;margin-top: 0px">
         </div>
         <div style="text-align: center;float: left;width: 100%;margin-top: 20px">
             <span style="font-size: 30px;color: #424242;font-weight: normal">注册洪禹账号</span>

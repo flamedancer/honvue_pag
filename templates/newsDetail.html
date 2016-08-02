@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 
 <div class="container">
     <div style="text-align: center;margin-top: 5%">
@@ -14,7 +15,7 @@
     <div>
         <div class="row" style="width: 90%;text-align: center;margin-left: 5%;padding-top:2%;" align="center">
             <div >
-                    <img src="/static/images/{{ new.bigpicture }}" alt="">
+                    <img src="{% static '/static/images/' %}{{ new.bigpicture }}" alt="">
             </div>
         </div>
         
