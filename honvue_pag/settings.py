@@ -102,7 +102,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 #STATIC_URL = '/static/'
-STATIC_URL = 'http://honvuepag-10055128.cos.myqcloud.com/'
+STATIC_URL = 'http://honvuepag-10055128.file.myqcloud.com/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
