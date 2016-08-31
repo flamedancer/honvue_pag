@@ -87,11 +87,11 @@
                 {% for game in games %}
                     {% if forloop.first %}
                         <div class="item active image-wid" align="center">
-                           <a href="{% url 'gameDetail' forloop.counter0 %}"><img  src="{% static '/static/images/' %}{{ game.bigpicture }}" alt="..." class="img-responsive"></a>
+                           <a href="{% url 'gameDetail' forloop.counter0 %}"><img  src="{% static '/images/' %}{{ game.bigpicture }}" alt="..." class="img-responsive"></a>
                         </div>
                     {% else %}
                         <div class="item  image-wid" align="center">
-                            <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="{% static '/static/images/' %}{{ game.bigpicture }}" alt="..." class="img-responsive"></a>
+                            <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="{% static '/images/' %}{{ game.bigpicture }}" alt="..." class="img-responsive"></a>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -120,7 +120,7 @@
         <div class="col-xs-4 col-md-4">
             <div class="thumbnail">
                 <div>
-                    <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="{% static 'static/images/' %}{{game.smpicture}}" alt=""></a>
+                    <a href="{% url 'gameDetail' forloop.counter0 %}"><img src="{% static '/images/' %}{{game.smpicture}}" alt=""></a>
                     <p class="gameH">{{ game.name }}</p>
                     <p class="gameDec">{{ game.small_desc }}</p>
                 </div>
@@ -129,10 +129,10 @@
                 {% else %}
                     <div class="imgDownload">
                     {% if game.IOS_link %}
-                        <img src="{% static '/static/images/apple.png' %}"  onclick="window.open('{{game.IOS_link}}')">
+                        <img src="{% static '/images/apple.png' %}"  onclick="window.open('{{game.IOS_link}}')">
                     {% endif %}
                     {% if game.ANDROID_link %}
-                        <img src="{% static '/static/images/android.png' %}" onclick="window.open('{{game.ANDROID_link}}')">
+                        <img src="{% static '/images/android.png' %}" onclick="window.open('{{game.ANDROID_link}}')">
                     {% endif %}
                     </div>
                 {% endif %}
